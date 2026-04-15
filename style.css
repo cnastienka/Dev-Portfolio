@@ -98,6 +98,11 @@ h1, h2, h3, .font-serif {
     border-bottom: 1px solid rgba(255, 182, 193, 0.1);
 }
 
+.navbar-brand{
+    pointer-events: none;
+    cursor: none;
+}
+
 .nav-link {
     color: var(--text-light) !important;
     text-transform: uppercase;
