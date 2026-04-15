@@ -1,0 +1,269 @@
+/* =============================================
+   VARIABLES
+   ============================================= */
+:root {
+    --sakura-pink: #ffb6c1;
+    --sakura-accent: #ff8fa3;
+    --bg-dark: #121212;
+    --bg-section-semi: rgba(18, 18, 18, 0.85);
+    --card-dark: rgba(36, 36, 36, 0.9);
+    --text-light: #f5f5f5;
+    --text-muted: #b0b0b0;
+}
+
+/* =============================================
+   BASE
+   ============================================= */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, .font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+/* =============================================
+   UTILIDADES (clases que antes eran inline o
+   referenciadas sin definición)
+   ============================================= */
+
+/* Antes: class="italic" — Tailwind/Bootstrap no lo incluye */
+.text-italic {
+    font-style: italic;
+}
+
+/* Antes: class="tracking-widest" */
+.text-uppercase-spaced {
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+/* Antes: class="leading-relaxed" */
+.text-leading {
+    line-height: 1.8;
+}
+
+/* =============================================
+   FONDO Y PÉTALOS
+   ============================================= */
+.hero-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.95)),
+        url('https://images.unsplash.com/photo-1522383225653-ed111181a951?q=80&w=2076&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+}
+
+.sakura-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.petal {
+    position: absolute;
+    background-color: #ffdae9;
+    border-radius: 150% 0 150% 0;
+    opacity: 0.3;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0%   { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
+    10%  { opacity: 0.4; }
+    90%  { opacity: 0.4; }
+    100% { transform: translateY(110vh) translateX(150px) rotate(720deg); opacity: 0; }
+}
+
+/* =============================================
+   NAVEGACIÓN
+   ============================================= */
+.navbar {
+    background: rgba(18, 18, 18, 0.95) !important;
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 182, 193, 0.1);
+}
+
+.nav-link {
+    color: var(--text-light) !important;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    color: var(--sakura-pink) !important;
+}
+
+/* =============================================
+   SECCIONES
+   ============================================= */
+section {
+    position: relative;
+    padding: 100px 0;
+    background-color: var(--bg-section-semi);
+}
+
+/* Sección inicio: sin fondo extra (hereda el hero-background fijo) */
+.section-hero {
+    background: transparent;
+}
+
+/* Sección perfil profesional */
+.section-dark {
+    background-color: rgba(21, 21, 21, 0.9);
+}
+
+/* Sección blog */
+.section-blog {
+    background-color: rgba(18, 18, 18, 0.95);
+    padding-bottom: 120px;
+    z-index: 5;
+}
+
+/* Divisor decorativo de sección */
+.section-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--sakura-pink);
+}
+
+/* =============================================
+   CARDS
+   ============================================= */
+.glass-card {
+    background: var(--card-dark);
+    border: 1px solid rgba(255, 182, 193, 0.1);
+    border-radius: 1.2rem;
+    transition: all 0.3s ease;
+    height: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--sakura-pink);
+    box-shadow: 0 15px 35px rgba(255, 182, 193, 0.05);
+}
+
+/* Imagen dentro de cards de portafolio */
+.card-img-wrap {
+    height: 250px;
+}
+
+.card-img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+
+/* =============================================
+   COLORES DE UTILIDAD
+   ============================================= */
+.text-sakura  { color: var(--sakura-pink); }
+.bg-sakura    { background-color: var(--sakura-accent); color: white; }
+
+/* =============================================
+   SKILL TAGS
+   ============================================= */
+.skill-tag {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 182, 193, 0.2);
+    color: var(--text-light);
+    font-size: 0.8rem;
+    padding: 5px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 3px;
+}
+
+/* =============================================
+   SECCIÓN INICIO — hero
+   ============================================= */
+.hero-lead {
+    max-width: 700px;
+}
+
+/* =============================================
+   PERFIL — foto y badge
+   ============================================= */
+.profile-photo {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+}
+
+.profile-badge {
+    font-size: 1.5rem;
+}
+
+/* =============================================
+   CV PREVIEW CARD
+   ============================================= */
+.cv-preview-card {
+    cursor: pointer;
+    border: 2px dashed rgba(255, 182, 193, 0.3);
+    background: rgba(255, 255, 255, 0.02);
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.cv-preview-card:hover {
+    border-style: solid;
+    background: rgba(255, 182, 193, 0.05);
+}
+
+.cv-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(18, 18, 18, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.cv-preview-card:hover .cv-overlay {
+    opacity: 1;
+}
+
+/* =============================================
+   TEXTOS VISIBLES SOBRE FONDOS OSCUROS
+   ============================================= */
+.text-visible-muted {
+    color: #d0d0d0 !important;
+    font-weight: 500;
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+footer {
+    position: relative;
+    background-color: #080808 !important;
+    border-top: 1px solid rgba(255, 182, 193, 0.15);
+    z-index: 10;
+    padding: 80px 0;
+}
