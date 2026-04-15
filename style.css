@@ -199,6 +199,12 @@ section {
     margin: 3px;
 }
 
+.skill-tag:hover{
+    transform: translateY(-5px);
+    border-color: var(--sakura-pink);
+    box-shadow: 0 15px 35px rgba(255, 182, 193, 0.05);
+}
+
 /* =============================================
    SECCIÓN INICIO — hero
    ============================================= */
